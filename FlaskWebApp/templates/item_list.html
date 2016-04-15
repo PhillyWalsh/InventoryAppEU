@@ -1,0 +1,24 @@
+{% extends "header.html" %}
+{% block content %} 
+<div>
+    <center><h1><b>Items List</b></h1></center>
+    <br><br>
+    <ul class="table-view">
+    {% for item in json %}
+        <a href = "/dashboard/items/edit/{{item.iid}}/" class = "list-group-item" style="margin-left: 15%; margin-right: 15%;">
+        <div class="table-view-cell media">
+          <div class="media-object pull-left" style="margin-left:20px; margin-right:20px;">
+            <img src="{{item.pic_url}}" class="img-rounded" style="max-width: 70px; padding: 2px"/>
+          </div> 
+        <div class="media-body"> 
+            <b><i>Title:</i></b> {{item.title}}<br>
+            <b><i>Category:</i></b> {{item.category}}<br>
+            <b><i>Price:</i></b> &euro;{{item.price}}<br>
+            <b><i>Added/Modified:</i></b> {{item.ts}}<br>
+        </div>
+        </div> 
+        </a>
+    {% endfor %}
+    </ul>
+</div>    
+{% endblock %}

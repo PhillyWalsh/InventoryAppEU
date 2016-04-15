@@ -1,0 +1,19 @@
+{% extends "header.html" %}
+{% block content %} 
+<div>
+    <center><h1><b>Edit Item</b></h1></center>
+    <br>
+    {% for item in json %}
+    <div class = "list-group-item" id="editing" style="margin-left: 25%; margin-right: 25%; background-color: #F8F8F8 ;">
+        <div class='editable-item'><div id='item-pic'><center><img style='max-height: 23vh; padding-top: 5px;' src='{{item.pic_url}}' class="img-rounded" /></center></div><br><div class='edit-body' style="margin-left: 25%; margin-right: 25%;"><form action="/dashboard/items/update/{{item.iid}}/" method="post"><b><i><u>Title</u></i></b><textarea name='title-text' id='title-text' rows='2' cols='40'> {{item.title}}</textarea><div class='details-content'><b><i><u>Category</u></i></b><textarea name='cat-text' id='cat-text' rows='1' cols='40'>{{item.category}}</textarea><p><b><i><u>Price</u>: </i></b>&euro;{{item.price}}</p><p id='itemDetails'><b><i><u>Added/Modified</u>: </i></b>{{item.ts}}</p></div></div></div>
+        <center>  
+            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-upload" style="color: yellow;"></span> Update Item</button>
+            </form>
+        <a href="/dashboard/items/delete/{{item.iid}}/">    
+        <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash" style="color: yellow;"></span> Delete Item</button>
+        </a>
+        </center>
+    </div>
+    {% endfor %}
+</div>    
+{% endblock %}

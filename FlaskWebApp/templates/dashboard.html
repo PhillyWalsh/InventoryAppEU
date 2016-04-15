@@ -1,0 +1,13 @@
+{% extends "header.html" %}
+{% block content %} 
+<div>
+    <center><h1><b>Dashboard</b></h1></center>
+    <br><br>
+    <div class="list-group" style="margin-left:25%; margin-right: 25%;">
+        <a href="/dashboard/books/" class="list-group-item" style="padding:15px;"><center>List of Books</center></a>
+        <a href="/dashboard/items/" class="list-group-item" style="padding:15px;"><center>List of CDs, Games, DVDs</center></a>
+        <a href="/dashboard/games/" class="list-group-item" style="padding:15px;"><center>List of Games</center></a>
+        <a href="/dashboard/dvds/" class="list-group-item" style="padding:15px;"><center>List of DVDs</center></a>
+    </div>
+</div>
+{% endblock %}

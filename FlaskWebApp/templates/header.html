@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Inventory App</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='favicon.ico') }}" rel="shortcut icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+         <style type="text/css">
+            @font-face {
+             font-family: 'rockwell';
+             src: url('static/fonts/rockwell.ttf');
+            }
+            p, h1, h2, h3, h4, a, b, ul, li, button, input, label, textarea {
+                font-family: rockwell;  
+            }
+             i{
+                 color: darkblue;
+             }
+
+             nav, body, .jumbotron, .content{
+                 background-image: url('/static/images/skulls.png');
+                 background-repeat: repeat;  
+             }
+             
+        </style>
+    </head>
+    <header>
+        <nav class="navbar navbar-default" style="background-color: #0066FF; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px;">
+        <div class="navbar-inner">
+            <a class="brand" href="/">
+                <img style="max-width:90px;" src="{{ url_for('static', filename='images/mainlogo.png') }}">
+            </a>   
+            <b style="color:white; ">Inventory App</b>
+            <ul class="nav navbar-nav navbar-right" style="margin-top:25px; margin-right:20px;">
+                {% if session.logged_in %}
+                    <ul class="nav nav-pills">
+                        <li><a type="button" role="presentation" class="btn btn-info" style="margin-right:20px;" href="/dashboard/"><span class="glyphicon glyphicon-home"></span> Dashboard</a></li>
+                        <li><a type="button" role="presentation" class="btn btn-warning" href="/logout/"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
+                    </ul>
+                {% else %}
+                    <ul class="nav nav-pills">
+                        <li><a type="button" role="presentation" class="btn btn-success" href="/login/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    </ul>
+                    {% endif %}
+            </ul>
+        </div>
+        </nav>
+    </header>
+<body>
+    
+    <div class="border-row" style="width:100%; margin-bottom:15px;"></div>
+    {% for message in get_flashed_messages() %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+    {% endfor %}
+    
+    {% block content %} 
+    
+    {% endblock %}
+        
+    </div>    
+    
+</body>
+<br><br>
+<footer class="footer" style="position: fixed; bottom: 0; width: 100%; height: 40px; background-color:#f5f5f5;">
+        <p class="text-muted" style="color: #777; padding-left: 20px; padding-top: 10px;"><b>Philip Walsh</b>   <i>C00109740</i></p>
+</footer>
+</html>

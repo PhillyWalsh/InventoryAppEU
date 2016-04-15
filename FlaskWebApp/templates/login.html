@@ -1,0 +1,17 @@
+{% extends "header.html" %}
+
+{% block content %}
+
+<div class="content" style="padding-top:10vh; background-color: white; padding-left: 40%; padding-right: 40%;">
+    <h3><b>Login</b></h3>
+        <form class="form-signin" action="" method="POST">
+            <label for="usernameLogin" class="sr-only">Username</label>
+            <input type="text" name="user_name" value="" id="usernameLogin" class="form-control" placeholder="Username" required="" autofocus=""><br>
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required=""><br>
+            <button class="btn btn-success" id="login" type="submit">Login</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
