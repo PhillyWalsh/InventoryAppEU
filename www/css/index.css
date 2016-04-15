@@ -1,0 +1,168 @@
+@font-face {
+    font-family: 'rockwell';
+    src: url('../fonts/rockwell.ttf');
+}
+
+body, form, textarea, input, button, header, h3, h4, p {
+    font-family: rockwell;
+}
+
+h4{
+    margin-top: 5px;
+}
+
+.title {
+    font-size:22px;
+    color: white;
+    font-weight:normal;
+    overflow:visible;
+}
+
+#loginResult, #regResult {
+    font-size: 16px; 
+    color: yellow; 
+    line-height: 125%;
+}
+header, #regBody, #loginBody {
+    background-image: url(../img/skulls.png);
+    background-repeat: repeat;
+    background-color: #0066FF;
+}
+
+.loginContent, .regContent {
+    padding-left: 60px; 
+    padding-right: 60px;
+    padding-top:100px; 
+}
+.form-signin-heading {
+    color: yellow;
+}
+.sr-only {
+    color: lightyellow;
+}
+#buttons{
+    background-color: #0066FF;
+    background-image: url(../img/dark-dotted-2.png);
+    color: yellow; 
+    width: 80%;
+}
+nav, body, #logoutbtn {
+    background-image: url(../img/skulls.png);
+    background-repeat: repeat;
+}
+body, .content {
+    background-color: #e6f0ff; 
+    background-image: url(../img/skulls.png);
+    background-repeat: repeat;
+}
+p {
+    font-size: 12px; 
+    color: black;  
+    line-height: 125%;
+}
+#item-pic{
+    border-color: skyblue;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background-color: white;
+    background-image: url(../img/brick-wall-dark.png);
+    background-repeat: repeat; 
+}
+.details-content {
+    /* set border styling */
+    padding-top: 10px;
+    margin-bottom: 5px;
+    border-color: skyblue;
+    border-style: solid;
+    border-width: 1px;
+    /* set border roundness */
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    background-color: white;
+}
+#backButton{
+    background-color: #0066FF;
+    background-image: url(../img/skulls.png);
+    color: white;
+    margin-top: 3px;
+}
+#buttonsBottom{
+    position: relative;
+    margin-top: 5px;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.edit-item, .details-content {
+    padding-left: 15px; 
+}
+textarea {
+    margin-bottom: 1px;
+    margin-top: 4px;
+}
+#headings {
+    color: darkblue;
+}
+ #itemDetails {
+    font-size: 14px; 
+    color: black;
+    line-height: 50%;
+}
+#itemList {
+    font-size: 12px; 
+    color: black;
+    line-height: 125%;
+}
+#searchBtn {
+    position: absolute;
+    bottom: 0;
+    background-image: url(../img/dark-dotted-2.png);
+    margin-bottom: 50px;
+}
+#bottomBtn {
+    margin-top: 5px;
+}
+#search-list{
+    margin-bottom: 100px;
+}
+#searchBarTop{
+    position: relative;
+    top: 0;
+    margin-top: 53px;
+    z-index: 999;    
+}
+#ocr-btn1,#ocr-btn2,#ocr-btn3,#ocr-btn4,#ocr-btn5,#ocr-btn6,#ocr-btn7,#ocr-btn8,#ocr-btn9{
+    margin-left: 15px;
+    margin-right: 15px;
+    width: 40px;
+    height: 35px;
+    background-color: #0066FF;
+    background-image: url(../img/dark-dotted-2.png);
+    color: white;
+}
+#item-fields{
+    margin-top: -5px;
+    margin-bottom: -15px;
+}
+#add-item-btn{
+    background-color: #0066FF;
+    background-image: url(../img/dark-dotted-2.png);
+    color: yellow; 
+    width:36%;
+    margin-left: 10%;
+    
+}
+#add-book-btn{
+    background-color: #0066FF;
+    background-image: url(../img/dark-dotted-2.png);
+    color: yellow; 
+    width:36%;
+    margin-right: 10%;   
+}
+#updateButton, #deleteButton, #addItemBtn, #clearItemBtn, #addBookBtn, #clearBookBtn{
+    background-image: url(../img/dark-dotted-2.png);
+}

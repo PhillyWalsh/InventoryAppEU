@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <meta http-equiv="Content-Security-Policy"/>
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no"> 
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/ratchet.min.css">
+        <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery-2.2.1.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script>check_login();</script>
+    </head>
+        <header class="bar bar-nav" style="background-color: #0066FF; height: 50px;">
+            <h1 class="title"><i><b>Inventory App</b></i></h1>
+            <button class="btn btn-positive pull-left" id="backButton" onclick="goBack()"><i class="fa fa-hand-o-left"></i> Back</button>
+            <button class="btn btn-negative pull-right" id="logoutbtn" onclick="logout()" style="margin-top: 3px;">Logout</button>
+        </header>
+        <body onload="getItems()" style="background-color: #F0F0F0; font-family: rockwell;">
+        <div class="content" style="padding-top:45px;">
+            <ul class="table-view">
+            <div id="items">
+                
+            </div>
+            </ul>
+            <br><br>
+            </div>
+        <nav class="bar bar-tab" style="background-color: #0066FF;">
+          <a class="tab-item active" href="index.html">
+            <span class="icon icon-home" style="color: yellow;"></span>
+              <span class="tab-label" style="color: white; font-family: rockwell;"><b>Home</b></span>
+          </a>
+          <a class="tab-item" href="inventory.html">
+            <span class="icon icon-list" style="color: yellow;"></span>
+              <span class="tab-label" style="color: white; font-family: rockwell;"><b>Inventory</b></span>
+          </a>
+          <a class="tab-item" href="searchItem.html">
+            <span class="icon icon-search" style="color: yellow;"></span>
+              <span class="tab-label" style="color: white; font-family: rockwell;"><b>Search</b></span>
+          </a>
+          <a class="tab-item" href="export.html">
+            <span class="icon icon-share" style="color: yellow;"></span>
+              <span class="tab-label" style="color: white; font-family: rockwell;"><b>Export</b></span>
+          </a>
+        </nav>
+
+    </body>
+</html>

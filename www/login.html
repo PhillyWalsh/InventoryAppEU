@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <meta http-equiv="Content-Security-Policy"/> 
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no"> 
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/ratchet.min.css">
+        <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery-2.2.1.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </head>
+        <header class="bar bar-nav" style="background-color: #0066FF; height: 50px;">
+            <h1 class="title"><i><b>Inventory App</b></i></h1>
+            <img style="max-width:45px;" src="img/logo.png"/>
+        </header>
+    <div class="loginContent">
+    <body id="loginBody">
+        <form class="form-signin">
+            <h3 class="form-signin-heading">Login</h3>
+            <label for="usernameLogin" class="sr-only">Username</label>
+            <input type="text" id="usernameLogin" class="form-control" placeholder="Username" required="" autofocus="">
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required=""><br>
+            <center><p id='loginResult'></p></center>
+            <button class="btn btn-positive btn-block" id="logBtn" type="submit"><i class="fa fa-sign-in"></i> Login</button>
+        </form>
+        <a href="register.html"><button class="btn btn-negative btn-block" id="regBtn" type="submit"><i class="fa fa-pencil-square-o"></i> Register</button></a>
+        </div>
+    </body>
+    <script>
+        $("#logBtn").click(function(){
+            var username=$("#usernameLogin").val();
+            var password=$("#inputPassword").val();
+            if($.trim(username).length>0 & $.trim(password).length>0)
+                {
+                    var json_data = loginUser(username, password);
+                    console.log(json_data);
+                    json_data = JSON.stringify(json_data);
+                    console.log(json_data);
+                    $.support.cors = true;
+                    $.ajax({
+                        type: "POST",
+                        url: 'http://inventoryapp.eu/app/login/',
+                        data: json_data,
+                        cache: false,
+                        contentType: "application/json; charset=utf-8",
+                        dataType: 'json',
+                        success: function(data){
+                            console.log(data);
+                            var details = data.collection[0];
+                            console.log(details.response);
+                            if(details.response =="success")
+                                {
+                                    alert("Welcome " + details.username);
+                                    localStorage.setItem("logged_in", true)
+                                    localStorage.setItem("userid", details.userid);
+                                    localStorage.setItem("username", details.username);
+                                    window.location.href = "index.html";
+                                }
+                            else
+                                {
+                                    $('#loginResult').html("Invalid login details!");
+                                }
+                            },
+                        error: function(xhr, status, error){
+                            console.log(xhr);
+                            console.log(status);
+                            console.log(error);
+                        }
+                    });
+                }
+            else {
+                $('#loginResult').html("Please fill in the required fields!");
+            }
+            return false;
+            });
+    </script>
+</html>

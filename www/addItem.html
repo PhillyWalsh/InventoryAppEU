@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <meta http-equiv="Content-Security-Policy"/> 
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no"> 
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/ratchet.min.css">
+        <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery-2.2.1.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script>check_login();</script>
+    </head>
+        <header class="bar bar-nav" style="background-color: #0066FF; height: 50px;">
+            <h1 class="title"><i><b>Inventory App</b></i></h1>
+            <button class="btn btn-positive pull-left" id="backButton" onclick="goBack()"><i class="fa fa-hand-o-left"></i> Back</button>
+            <button class="btn btn-negative pull-right" id="logoutbtn" onclick="logout()" style="margin-top: 3px;">Logout</button>
+        </header>
+        <body style="background-color: #F0F0F0; font-family: rockwell;">
+            <div class="content" style="padding-top: 50px;">
+            <center>    
+            <h4 class="item-heading">Item Details</h4>
+            </center>
+            <div id="item-fields">
+            <button id="ocr-btn1" class="btn btn-primary" data-id="barcode-input" onclick="setFieldId(this)"><i class="fa fa-camera"></i></button><input type="text" id="barcode-input" class="form-control" placeholder="Barcode" required="" autofocus="" style="width: 75%;">
+            <button id="ocr-btn2" class="btn btn-primary" data-id="input-title" onclick="setFieldId(this)"><i class="fa fa-camera"></i></button><input type="text" id="input-title" class="form-control" placeholder="Title" required="" autofocus="" style="width: 75%;">
+            <button id="ocr-btn3" class="btn btn-primary" data-id="input-category" onclick="setFieldId(this)"><i class="fa fa-camera"></i></button><input type="text" id="input-category" class="form-control" placeholder="Category" required="" style="width: 75%;">
+            <button id="ocr-btn4" class="btn btn-primary" data-id="input-price" onclick="setFieldId(this)"><i class="fa fa-camera"></i></button><input type="text" id="input-price" class="form-control" placeholder="Price" required="" style="width: 75%;">
+            <center><p id='regResult' style="font-size: 16px; color: yellow;"></p></center> 
+            </div>        
+                <div class="buttons" id="buttonsBottom">
+                <button type="button" id="addItemBtn" class="btn btn-positive btn-block pull-left" style="color: white; width: 49%;"><i class="fa fa-cloud-upload" style="color: yellow;"></i> Add Item</button>
+                <button type="button" id="clearItemBtn" class="btn btn-negative btn-block pull-right" style="color: white; width: 49%;"><span class="icon icon-trash" style="color: yellow;"></span> Clear Fields</button>
+                </div>
+            </div>  
+            
+        <nav class="bar bar-tab" style="background-color: #0066FF;">
+          <a class="tab-item active" href="index.html">
+            <span class="icon icon-home" style="color: yellow;"></span>
+              <span class="tab-label" style="color: white; font-family: rockwell;"><b>Home</b></span>
+          </a>
+          <a class="tab-item" href="inventory.html">
+            <span class="icon icon-list" style="color: yellow;"></span>
+              <span class="tab-label" style="color: white; font-family: rockwell;"><b>Inventory</b></span>
+          </a>
+          <a class="tab-item" href="searchItem.html">
+            <span class="icon icon-search" style="color: yellow;"></span>
+              <span class="tab-label" style="color: white; font-family: rockwell;"><b>Search</b></span>
+          </a>
+          <a class="tab-item" href="export.html">
+            <span class="icon icon-share" style="color: yellow;"></span>
+              <span class="tab-label" style="color: white; font-family: rockwell;"><b>Export</b></span>
+          </a>
+        </nav>
+            <script>
+                $("#addItemBtn").click(function(){
+                    var bar = $("#barcode-input").val();
+                    var title = $("#input-title").val();
+                    var cat = $("#input-category").val();
+                    var price = $("#input-price").val();
+                    if($.trim(bar).length>5 & $.trim(title).length>0 & $.trim(cat).length>0 & $.trim(price).length>0){
+                        addItemMan();
+                    }
+                    else{
+                        alert("Fill in the required fields")
+                    }
+                });
+                $("#clearItemBtn").click(function(){
+                    $("#barcode-input").val("");
+                    $("#input-title").val("");
+                    $("#input-category").val("");
+                    $("#input-price").val("");
+                });
+                $("#ocr-btn1").click(function(){
+                    capturePhoto();
+                });
+                $("#ocr-btn2").click(function(){
+                    capturePhoto();
+                });
+                $("#ocr-btn3").click(function(){
+                    capturePhoto();
+                });
+                $("#ocr-btn4").click(function(){
+                    capturePhoto();
+                });
+            </script>
+    </body>
+</html>
